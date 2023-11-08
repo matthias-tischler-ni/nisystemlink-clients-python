@@ -59,8 +59,8 @@ class TestMonitorClient(BaseClient):
     @get("products", args=[Query, Query, Query])
     def get_products(
         self,
-        continuationToken: Optional[Union[str, None]],
-        take: Optional[Union[int, None]],
+        continuationToken: Optional[str],
+        take: Optional[int],
         returnCount: bool,
     ) -> models.ProductsQueryResponse:
         """Get product details of multiple products.

@@ -36,7 +36,9 @@ products_request = CreateProductsRequest(
     ]
 )
 example_product = client.create_products(products=products_request).products[0]
-product_id = example_product.id
+
+if example_product.id is not None:
+    product_id = example_product.id
 
 logging.info("Product Created Successfully.")
 logging.info(f"Created Product Name: {example_product.name}")
