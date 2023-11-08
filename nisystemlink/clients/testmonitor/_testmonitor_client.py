@@ -41,31 +41,18 @@ class TestMonitorClient(BaseClient):
         ...
 
     # products
-    @post("products")
-    def create_products(
+    @post("query-products")
+    def query_products(
         self,
-        products: models.CreateProductsRequest,
-    ) -> models.CreateOrUpdateProductsResponse:
-        """Create a new products with the provided product details.
+        query_filter: models.ProductsAdvancedQuery,
+    ) -> models.ProductsQueryResponse:
+        """Get products based on the filter.
 
         Args:
-            products: The request to create the products.
+            query_filter: Filter to be applied for Products .
 
         Returns:
-            The product details of the newly created products.
-
-        """
-        ...
-
-    @get("products/{productId}")
-    def get_product(self, productId: Optional[str]) -> models.ProductResponseObject:
-        """Retrieve the product details of a product identified by its ID.
-
-        Args:
-            productId: Unique ID of a product.
-
-        Returns:
-            The details of the product.
+            List of products.
         """
         ...
 
@@ -80,65 +67,51 @@ class TestMonitorClient(BaseClient):
 
         Args:
             continuationToken: The token used to paginate results.
-            take: Limits the returned list of products to the specified number
+            take: Limits the returned list of products to the specified number.
             returnCount: Total count of the products available.
 
         Returns:
-            The list of products.
+            List of products.
         """
         ...
 
-    @post("query-products")
-    def query_products(
+    @post("products")
+    def create_products(
         self,
-        query_filter: models.ProductsAdvancedQuery,
-    ) -> models.ProductsQueryResponse:
-        """Get a set of products based on the queryFilter.
+        products: models.CreateProductsRequest,
+    ) -> models.CreateOrUpdateProductsResponse:
+        """Create new products with given product details.
 
         Args:
-            query_filter: The filter to be applied when querying for products.
+            products: The request body of the products.
 
         Returns:
-            The list of products.
+            Details of newly created products.
+
+        """
+        ...
+
+    @get("products/{productId}")
+    def get_product(self, productId: Optional[str]) -> models.ProductResponseObject:
+        """Get product details of a single product.
+
+        Args:
+            productId: Unique ID of a product.
+
+        Returns:
+            Details of the provided product id.
         """
         ...
 
     @delete("products/{productId}")
     def delete_product(self, productId: str) -> None:
-        """Delete a product using the product id.
+        """Delete a product.
 
         Args:
-            productId: The id of the product to be deleted.
+            productId: Id of the product to be deleted.
 
         Returns:
             None
-        """
-        ...
-
-    @post("delete-products")
-    def delete_products(self, request_body: models.ProductDeleteRequest) -> None:
-        """Delete set of products using the list of product ids given in the request body.
-
-        Args:
-            request_body: The list of ids to be deleted.
-
-        Returns:
-            None
-        """
-        ...
-
-    @post("update-products")
-    def update_products(
-        self,
-        request_body: models.UpdateProductsRequest,
-    ) -> models.CreateOrUpdateProductsResponse:
-        """Update a set of products.
-
-        Args:
-            request_body: The product details to be updated with.
-
-        Returns:
-            The updated product response.
         """
         ...
 
@@ -147,12 +120,39 @@ class TestMonitorClient(BaseClient):
         self,
         product_query: models.ProductValuesQuery,
     ) -> List[str]:
-        """Get product values using the product_query.
+        """Get product values.
 
         Args:
-            product_query: The fields to be queried based on filter.
+            product_query: Filter to be applied for products.
 
         Returns:
-            The list of values based on the product_query.
+            List of values based on the product_query.
+        """
+        ...
+
+    @post("update-products")
+    def update_products(
+        self,
+        request_body: models.UpdateProductsRequest,
+    ) -> models.CreateOrUpdateProductsResponse:
+        """Update multiple products.
+
+        Args:
+            request_body: The updated details of the products.
+
+        Returns:
+            Details of updated products.
+        """
+        ...
+
+    @post("delete-products")
+    def delete_products(self, request_body: models.ProductDeleteRequest) -> None:
+        """Delete multiple products.
+
+        Args:
+            request_body: List of product ids to be deleted.
+
+        Returns:
+            None
         """
         ...

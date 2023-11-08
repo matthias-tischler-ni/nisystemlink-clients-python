@@ -1,9 +1,9 @@
 """This file contains the test class for products APIs of TestMonitor."""
-# Python Modules
+# Python Modules.
 from datetime import datetime
 from typing import Callable, List
 
-# Third party modules
+# Third party modules.
 import pytest
 from nisystemlink.clients.core import ApiException
 from nisystemlink.clients.testmonitor import TestMonitorClient
