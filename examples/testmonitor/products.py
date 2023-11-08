@@ -57,9 +57,7 @@ update_product_request = UpdateProductsRequest(
     ],
     replace=False,
 )
-updated_product = client.update_products(request_body=update_product_request).products[
-    0
-]
+updated_product = client.update_products(request_body=update_product_request).products[0]
 
 logging.info("Product Updated Successfully.")
 logging.info(f"Updated Product Name: {updated_product.name}")

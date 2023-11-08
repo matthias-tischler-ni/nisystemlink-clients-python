@@ -1,4 +1,4 @@
-"""This file contains the test class for products APIs of TestMonitor."""
+"""Test suite for testing products APIs of TestMonitor."""
 # Python Modules.
 from datetime import datetime
 from typing import Callable, List
@@ -275,7 +275,7 @@ class TestSuiteTestMonitorClientProducts:
         assert response.total_count > 0
 
     def test__get_products__without_total_count(self, client: TestMonitorClient):
-        """Test the case of no return count of get products API."""
+        """Test the case of absence of total count of get products API."""
         response = client.get_products(
             take=None, continuationToken=None, returnCount=False
         )
@@ -307,7 +307,7 @@ class TestSuiteTestMonitorClientProducts:
         create_product: Callable,
         create_product_request: Callable,
     ):
-        """Test the delete products API."""
+        """Test the cases of delete products API."""
         product_ids = []
 
         product_request_objects = [create_product_request() for _ in range(2)]
@@ -351,7 +351,7 @@ class TestSuiteTestMonitorClientProducts:
         test_products: List[ProductResponseObject],
         update_product_request: Callable,
     ):
-        """Test the case of update products API without replacing."""
+        """Test the case of update products API with replace as False."""
         existing_product = client.get_product(test_products[2].id)
 
         new_product_details = update_product_request(
