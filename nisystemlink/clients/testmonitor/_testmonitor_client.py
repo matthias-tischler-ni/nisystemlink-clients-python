@@ -1,6 +1,6 @@
 """Implementation of TestMonitorClient."""
 # Python Modules.
-from typing import List, Optional, Union
+from typing import List, Optional
 
 # Third party modules.
 from nisystemlink.clients import core
