@@ -41,7 +41,7 @@ if example_product.id is not None:
     product_id = example_product.id
 
 logging.info("Product Created Successfully.")
-logging.info(f"Created Product Name: {example_product.name}")
+logging.info("Created Product Name: %s", example_product.name)
 
 # Update the product.
 update_product_request = UpdateProductsRequest(
@@ -60,7 +60,7 @@ update_product_request = UpdateProductsRequest(
 updated_product = client.update_products(request_body=update_product_request).products[0]
 
 logging.info("Product Updated Successfully.")
-logging.info(f"Updated Product Name: {updated_product.name}")
+logging.info("Updated Product Name: %s", updated_product.name)
 
 # Query the product.
 query_filter = ProductsAdvancedQuery(
@@ -76,7 +76,7 @@ query_filter = ProductsAdvancedQuery(
 queried_product = client.query_products(query_filter=query_filter).products[0]
 
 logging.info("Product Queried Successfully.")
-logging.info(f"Queried Product Name: {queried_product.name}")
+logging.info("Queried Product Name: %s", queried_product.name)
 
 # Delete the product.
 client.delete_product(productId=product_id)
