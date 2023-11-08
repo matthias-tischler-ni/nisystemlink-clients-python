@@ -1,0 +1,22 @@
+.. _api_tag_page:
+
+nisystemlink.clients.testmonitor
+================================
+
+..autoclass:: nisystemlink.clients.testmonitor.TestMonitorClient
+    :exclude-members: __init__
+
+    .. automethod:: __init__
+    .. automethod:: api_info
+    .. automethod:: query_products
+    .. automethod:: get_products
+    .. automethod:: create_products
+    .. automethod:: get_product
+    .. automethod:: delete_product
+    .. automethod:: query_product_values
+    .. automethod:: update_products
+    .. automethod:: delete_products
+
+.. automodule:: nisystemlink.clients.testmonitor.models
+   :members:
+   :imported-members:
