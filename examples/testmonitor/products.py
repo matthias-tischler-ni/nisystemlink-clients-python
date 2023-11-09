@@ -10,7 +10,8 @@ from nisystemlink.clients.testmonitor.models import (
     UpdateProductsRequest,
 )
 
-FAMILY = "EXAMPLE FAMILY"
+PART_NUMBER = "example_product_1"
+FAMILY = "example"
 
 client = TestMonitorClient()
 
@@ -18,10 +19,10 @@ client = TestMonitorClient()
 products_request = CreateProductsRequest(
     products=[
         ProductRequestObject(
-            part_number="example_product_1",
+            part_number=PART_NUMBER,
             name="example_product",
             family=FAMILY,
-            keywords=["example_keywords"],
+            keywords=["example_keyword"],
             properties={"example_key": "example_value"},
             file_ids=["example_file_id"],  # File ids are not verified.
         )
@@ -36,7 +37,7 @@ print("Created Product Name:", example_product.name)
 # Query the product.
 query_filter = ProductsAdvancedQuery(
     filter="partNumber == @0",
-    substitutions=["example_product_1"],
+    substitutions=[PART_NUMBER],
     order_by=ProductQueryOrderByField.NAME,
     descending=False,
     projection=[ProductField.ID],
