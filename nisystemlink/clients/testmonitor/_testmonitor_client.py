@@ -1,8 +1,6 @@
 """Implementation of TestMonitorClient."""
-# Python Modules.
 from typing import List, Optional
 
-# Third party modules.
 from nisystemlink.clients import core
 from nisystemlink.clients.core._uplink._base_client import BaseClient
 from nisystemlink.clients.core._uplink._methods import delete, get, post
@@ -86,7 +84,7 @@ class TestMonitorClient(BaseClient):
             products: The request body of the products.
 
         Returns:
-            Details of newly created products.
+            Details of created products.
 
         """
         ...
@@ -99,7 +97,7 @@ class TestMonitorClient(BaseClient):
             productId: Unique ID of a product.
 
         Returns:
-            Details of the provided product id.
+            Details of the product id.
         """
         ...
 

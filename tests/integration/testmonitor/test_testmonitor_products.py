@@ -1,9 +1,7 @@
-"""Test suite for testing products APIs of TestMonitor."""
-# Python Modules.
+"""Test suite for testing Products APIs of TestMonitor."""
 from datetime import datetime
 from typing import Callable, List
 
-# Third party modules.
 import pytest
 from nisystemlink.clients.core import ApiException
 from nisystemlink.clients.testmonitor import TestMonitorClient
