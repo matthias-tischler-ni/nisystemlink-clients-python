@@ -5,7 +5,7 @@ from nisystemlink.clients import core
 from nisystemlink.clients.core._uplink._base_client import BaseClient
 from nisystemlink.clients.core._uplink._methods import delete, get, post
 from nisystemlink.clients.testmonitor import models
-from uplink import Query
+from uplink import Query, returns
 
 
 class TestMonitorClient(BaseClient):
@@ -113,6 +113,7 @@ class TestMonitorClient(BaseClient):
         """
         ...
 
+    @returns.json
     @post("query-product-values")
     def query_product_values(
         self,
