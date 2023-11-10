@@ -120,3 +120,33 @@ Export data from a table
 .. literalinclude:: ../examples/dataframe/export_data.py
    :language: python
    :linenos:
+
+TestMonitor API
+---------------
+
+Overview
+~~~~~~~~
+
+The :class:`.TestMonitorClient` class is the primary entry point of the TestMonitor API.
+
+When constructing a :class:`.TestMonitorClient`, you can pass an
+:class:`.HttpConfiguration` (like one retrieved from the
+:class:`.HttpConfigurationManager`), or let :class:`.TestMonitorClient` use the
+default connection. The default connection depends on your environment.
+
+With a :class:`.TestMonitorClient` object, you can:
+
+* Create product
+
+* Query product
+  
+* Update product
+
+* Delete product
+  
+Examples
+~~~~~~~~
+
+.. literalinclude:: ../examples/testmonitor/basic_operations_products.py
+  :language: python
+  :linenos:

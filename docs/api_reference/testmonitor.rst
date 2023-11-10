@@ -3,7 +3,7 @@
 nisystemlink.clients.testmonitor
 ================================
 
-..autoclass:: nisystemlink.clients.testmonitor.TestMonitorClient
+.. autoclass:: nisystemlink.clients.testmonitor.TestMonitorClient
     :exclude-members: __init__
 
     .. automethod:: __init__
