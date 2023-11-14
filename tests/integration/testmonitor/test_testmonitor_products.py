@@ -413,5 +413,5 @@ class TestSuiteTestMonitorClientProducts:
             startsWith=STARTS_WITH,
         )
 
-        response = client.query_product_values(request_body)
+        response = client.query_product_values(request_body).__root__
         assert len(response) == 1

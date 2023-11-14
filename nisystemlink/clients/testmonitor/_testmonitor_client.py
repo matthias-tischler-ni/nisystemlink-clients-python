@@ -1,11 +1,11 @@
 """Implementation of TestMonitorClient."""
-from typing import List, Optional
+from typing import Optional, Union
 
 from nisystemlink.clients import core
 from nisystemlink.clients.core._uplink._base_client import BaseClient
 from nisystemlink.clients.core._uplink._methods import delete, get, post
 from nisystemlink.clients.testmonitor import models
-from uplink import Query, returns
+from uplink import Query
 
 
 class TestMonitorClient(BaseClient):
@@ -30,7 +30,7 @@ class TestMonitorClient(BaseClient):
 
     # versioning
     @get("")
-    def api_info(self) -> models.V2Operations:
+    def api_info(self) -> Union[models.V2Operations, None]:
         """Get information about available API operations.
 
         Returns:
@@ -43,7 +43,7 @@ class TestMonitorClient(BaseClient):
     def query_products(
         self,
         query_filter: models.ProductsAdvancedQuery,
-    ) -> models.ProductsQueryResponse:
+    ) -> models.QueryProductsResponse:
         """Get products based on the filter.
 
         Args:
@@ -60,7 +60,7 @@ class TestMonitorClient(BaseClient):
         continuationToken: Optional[str],
         take: Optional[int],
         returnCount: bool,
-    ) -> models.ProductsQueryResponse:
+    ) -> models.QueryProductsResponse:
         """Get product details of multiple products.
 
         Args:
@@ -113,12 +113,11 @@ class TestMonitorClient(BaseClient):
         """
         ...
 
-    @returns.json
     @post("query-product-values")
     def query_product_values(
         self,
         product_query: models.ProductValuesQuery,
-    ) -> List[str]:
+    ) -> models.QueryProductValuesResponse:
         """Get product values.
 
         Args:
